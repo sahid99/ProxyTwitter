@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProxyTwitter.Models;
+using System;
 
 namespace ProxyTwitter
 {
@@ -6,7 +7,13 @@ namespace ProxyTwitter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var proxy = new ProxyTwitt();
+            var response = proxy.ObtenerTweets("flower");
+
+            foreach (var tw in response)
+            {
+                Console.WriteLine($"Tweet: {tw.previewURL}");
+            }
         }
     }
 }
